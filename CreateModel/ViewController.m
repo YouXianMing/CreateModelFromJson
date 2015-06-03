@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CreateModel.h"
 
 @interface ViewController ()
 
@@ -16,12 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    // JSON数据(模拟的)
+    NSDictionary *data = @{@"name"       : @"YouXianMing",
+                           @"age"        : @(6),
+                           @"address"    : @[@"北京", @"通州北苑"],
+                           @"infomation" : @{@"A" : @"B"}};
+    
+    // 创建文件
+    [CreateModel createFileWithModelName:@"PeopleModel"
+                              dictionary:data];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
